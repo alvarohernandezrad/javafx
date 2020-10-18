@@ -1,6 +1,6 @@
 package ehu.isad.controller;
 
-import ehu.isad.Main;
+import ehu.isad.Liburuak;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,10 +14,10 @@ import java.util.ResourceBundle;
 
 public class AukerakController implements Initializable {
 
-    private Main main;
+    private Liburuak main;
 
 
-    public void setMainApp(Main main){
+    public void setMainApp(Liburuak main){
         this.main = main;
     }
 
@@ -69,9 +69,9 @@ public class AukerakController implements Initializable {
     void onClick(ActionEvent event) {
         if(cmbx_aukerak.getValue()!=null){
             String isbn = this.aukeraISBN(cmbx_aukerak.getValue());
-            main.xehetasunakErakutsi(isbn);
+            main.xehetasunakEsleitu(isbn);
         }
-        else{        }
+        else{}
     }
 
 }

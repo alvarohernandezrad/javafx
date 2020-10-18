@@ -1,10 +1,9 @@
 package ehu.isad.controller;
 
-import ehu.isad.Liburua;
-import ehu.isad.Main;
+import ehu.isad.Book;
+import ehu.isad.Liburuak;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -12,11 +11,11 @@ import javafx.scene.layout.AnchorPane;
 
 public class XehetasunakController {
 
-    private Main mainApp;
+    private Liburuak main;
 
 
-    public void setMainApp(Main main){
-        this.mainApp = main;
+    public void setMainApp(Liburuak main){
+        this.main = main;
     }
 
     @FXML
@@ -51,16 +50,16 @@ public class XehetasunakController {
 
     @FXML
     void onClick(ActionEvent event) {
-        mainApp.mainErakutsi();
+        main.mainErakutsi();
     }
 
-    public void xehetasunakErakutsi(Liburua liburua){
-        txt_izenburua.setText(liburua.getTitle()+ " " + liburua.getSubtitle());
-        txt_argitaletxea.setText(liburua.getPublishers()[0]);
-        for (int i=1; i < liburua.getPublishers().length; i++){
-            txt_argitaletxea.setText(txt_argitaletxea.getText()+ ", " +  liburua.getPublishers()[i]);
+    public void xehetasunakErakutsi(Book book){
+        txt_izenburua.setText(book.getDetails().getTitle()+ " " + book.getDetails().getSubtitle());
+        txt_argitaletxea.setText(book.getDetails().getPublishers()[0]);
+        for (int i=1; i < book.getDetails().getPublishers().length; i++){
+            txt_argitaletxea.setText(txt_argitaletxea.getText()+ ", " +  book.getDetails().getPublishers()[i]);
         }
-        txt_orriKop.setText(String.valueOf(liburua.getNumber_of_pages()));
+        txt_orriKop.setText(String.valueOf(book.getDetails().getNumber_of_pages()));
     }
 
 }

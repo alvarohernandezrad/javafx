@@ -24,7 +24,7 @@ java {
 
 application {
     mainModule = 'javafx' // name defined in module-info.java
-    mainClass = 'ehu.isad.Main'
+    mainClass = 'ehu.isad.Liburuak'
 }
 
 
