@@ -31,6 +31,8 @@ public class Book {
     public Details getDetails() {
         return details;
     }
+
+
     public Book getLiburua(String ISBN){
         Sarea sarea = new Sarea();
         String inputLine = sarea.readFromURL(ISBN);

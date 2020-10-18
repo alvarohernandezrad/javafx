@@ -1,7 +1,7 @@
 package ehu.isad;
 
-import ehu.isad.controller.AukerakController;
-import ehu.isad.controller.XehetasunakController;
+import ehu.isad.controller.LiburuKud;
+import ehu.isad.controller.XehetasunakKud;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,8 +20,8 @@ public class Liburuak extends Application {
     private Scene aukerakScene;
     private Scene xehetasunakScene;
 
-    private AukerakController aukerakController;
-    private XehetasunakController xehetasunakController;
+    private LiburuKud aukerakController;
+    private XehetasunakKud xehetasunakController;
 
 
     @Override

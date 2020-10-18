@@ -12,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AukerakController implements Initializable {
+public class LiburuKud implements Initializable {
 
     private Liburuak main;
 
