@@ -1,26 +1,27 @@
 package ehu.isad;
 
-import ehu.isad.controller.KautotuKud;
-import ehu.isad.controller.MainKud;
+import ehu.isad.controller.AukerakController;
+import ehu.isad.controller.XehetasunakController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class Main extends Application {
 
-  private Parent kautotuUI;
-  private Parent mainUI;
+  private Parent aukerakUI;
+  private Parent xehetasunakUI;
 
   private Stage stage;
 
-  private KautotuKud kautotuKud;
-  private MainKud mainKud;
+  private Scene aukerakScene;
+  private Scene xehetasunakScene;
+  
+  private AukerakController aukerakController;
+  private XehetasunakController xehetasunakController;
 
 
   @Override
@@ -29,22 +30,24 @@ public class Main extends Application {
     stage = primaryStage;
     pantailakKargatu();
 
-    stage.setTitle("Argazki Backup");
-    stage.setScene(new Scene(kautotuUI, 450, 275));
+    stage.setTitle("OpenLibrary APIa aztertzen");
+    stage.setScene(aukerakScene);
     stage.show();
   }
 
   private void pantailakKargatu() throws IOException {
 
-    FXMLLoader loaderKautotu = new FXMLLoader(getClass().getResource("/kautotu.fxml"));
-    kautotuUI = (Parent) loaderKautotu.load();
-    kautotuKud = loaderKautotu.getController();
-    kautotuKud.setMainApp(this);
+    FXMLLoader loaderAukerak = new FXMLLoader(getClass().getResource("/OL_aukerak.fxml"));
+    aukerakUI = (Parent) loaderAukerak.load();
+    aukerakController = loaderAukerak.getController();
+    aukerakController.setMainApp(this);
+    aukerakScene = new Scene(aukerakUI);
 
-    FXMLLoader loaderMain = new FXMLLoader(getClass().getResource("/main.fxml"));
-    mainUI = (Parent) loaderMain.load();
-    mainKud = loaderMain.getController();
-    mainKud.setMainApp(this);
+    FXMLLoader loaderXehetasunak = new FXMLLoader(getClass().getResource("/OL_xehetasunak.fxml"));
+    xehetasunakUI = (Parent) loaderXehetasunak.load();
+    xehetasunakController = loaderXehetasunak.getController();
+    xehetasunakController.setMainApp(this);
+    xehetasunakScene = new Scene(xehetasunakUI);
   }
 
 
@@ -53,7 +56,16 @@ public class Main extends Application {
   }
 
   public void mainErakutsi() {
-    stage.setScene(new Scene(mainUI));
+    stage.setScene(aukerakScene);
+    stage.show();
+  }
+
+
+  public void xehetasunakErakutsi(String ISBN){
+    Liburua liburua = new Liburua();
+    liburua = liburua.readFromURL(ISBN);
+    xehetasunakController.xehetasunakErakutsi(liburua);
+    stage.setScene(xehetasunakScene);
     stage.show();
   }
 }
