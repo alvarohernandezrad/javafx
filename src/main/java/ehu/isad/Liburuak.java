@@ -35,13 +35,13 @@ public class Liburuak extends Application {
 
     private void pantailakKargatu() throws IOException {
 
-        FXMLLoader loaderAukerak = new FXMLLoader(getClass().getResource("/OL_aukerak.fxml"));
+        FXMLLoader loaderAukerak = new FXMLLoader(getClass().getResource("/Liburuak.fxml"));
         aukerakUI = (Parent) loaderAukerak.load();
         aukerakController = loaderAukerak.getController();
         aukerakController.setMainApp(this);
         aukerakScene = new Scene(aukerakUI);
 
-        FXMLLoader loaderXehetasunak = new FXMLLoader(getClass().getResource("/OL_xehetasunak.fxml"));
+        FXMLLoader loaderXehetasunak = new FXMLLoader(getClass().getResource("/Xehetasunak.fxml"));
         xehetasunakUI = (Parent) loaderXehetasunak.load();
         xehetasunakController = loaderXehetasunak.getController();
         xehetasunakController.setMainApp(this);
@@ -49,8 +49,8 @@ public class Liburuak extends Application {
     }
 
 
-    public static void main(String[] args) {
-        launch(args);
+    public static void main(String[] args){
+            launch(args);
     }
 
     public void mainErakutsi() {

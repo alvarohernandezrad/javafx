@@ -14,33 +14,10 @@ import java.util.ResourceBundle;
 
 public class LiburuKud implements Initializable {
 
-    private Liburuak main;
-
+    private Liburuak mainApp;
 
     public void setMainApp(Liburuak main){
-        this.main = main;
-    }
-
-    private String aukeraISBN(String aukera){
-        String ISBN = "";
-        switch (aukera) {
-            case "Blockchain: Blueprint for a New Economy":
-                ISBN = "9781491920497";
-                break;
-            case "R for Data Science":
-                ISBN = "1491910399";
-                break;
-            case "Fluent Python":
-                ISBN = "1491946008";
-                break;
-            case "Natural Language Processing with PyTorch":
-                ISBN = "1491978236";
-                break;
-            case "Data Algorithms":
-                ISBN = "9781491906187";
-                break;
-        }
-        return ISBN;
+        this.mainApp = main;
     }
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -49,6 +26,7 @@ public class LiburuKud implements Initializable {
         cmbx_aukerak.getItems().add(2, "Fluent Python");
         cmbx_aukerak.getItems().add(3, "Natural Language Processing with PyTorch");
         cmbx_aukerak.getItems().add(4, "Data Algorithms");
+
         cmbx_aukerak.getSelectionModel().selectFirst();
     }
 
@@ -69,9 +47,30 @@ public class LiburuKud implements Initializable {
     void onClick(ActionEvent event) {
         if(cmbx_aukerak.getValue()!=null){
             String isbn = this.aukeraISBN(cmbx_aukerak.getValue());
-            main.xehetasunakEsleitu(isbn);
+            mainApp.xehetasunakEsleitu(isbn);
         }
         else{}
+    }
+    private String aukeraISBN(String aukera){
+        String ISBN = "";
+        switch (aukera) {
+            case "Blockchain: Blueprint for a New Economy":
+                ISBN = "9781491920497";
+                break;
+            case "R for Data Science":
+                ISBN = "1491910399";
+                break;
+            case "Fluent Python":
+                ISBN = "1491946008";
+                break;
+            case "Natural Language Processing with PyTorch":
+                ISBN = "1491978236";
+                break;
+            case "Data Algorithms":
+                ISBN = "9781491906187";
+                break;
+        }
+        return ISBN;
     }
 
 }

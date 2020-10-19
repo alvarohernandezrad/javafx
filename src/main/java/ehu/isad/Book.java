@@ -24,6 +24,8 @@ public class Book {
                 '}';
     }
 
+    public Book(){}
+
     public String getThumbnail_url() {
         return thumbnail_url;
     }

@@ -16,7 +16,6 @@ public class Sarea {
 
     public Sarea() { }
 
-
     public String readFromURL(String ISBN) {
         String inputLine = "";
         URL api;
@@ -35,8 +34,4 @@ public class Sarea {
         inputLine = zatiak[1].substring(0, zatiak[1].length() - 1);
         return inputLine;
     }
-
-
-
-
 }

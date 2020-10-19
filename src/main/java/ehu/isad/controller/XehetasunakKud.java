@@ -4,18 +4,23 @@ import ehu.isad.Book;
 import ehu.isad.Liburuak;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 
-public class XehetasunakKud {
+import java.net.URL;
+import java.util.ResourceBundle;
 
-    private Liburuak main;
+public class XehetasunakKud implements Initializable {
+
+    private Liburuak mainApp;
 
 
     public void setMainApp(Liburuak main){
-        this.main = main;
+        this.mainApp = main;
     }
 
     @FXML
@@ -40,17 +45,22 @@ public class XehetasunakKud {
     private Button btn_atzera;
 
     @FXML
-    private TextField txt_izenburua;
+    private Text txt_izenburua;
 
     @FXML
-    private TextField txt_argitaletxea;
+    private Text txt_argitaletxea;
 
     @FXML
-    private TextField txt_orriKop;
+    private Text txt_orriKop;
 
     @FXML
     void onClick(ActionEvent event) {
-        main.mainErakutsi();
+        mainApp.mainErakutsi();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources){
+        txt_izenburua.setWrappingWidth(500);
     }
 
     public void xehetasunakErakutsi(Book book){
