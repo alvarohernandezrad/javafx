@@ -18,8 +18,8 @@
       <Label fx:id="lbl_orriKop" layoutX="92.0" layoutY="200.0" text="Orri kopurua:" />
       <Label fx:id="lbl_irudia" layoutX="114.0" layoutY="239.0" text="Irudia:" />
       <Button fx:id="btn_atzera" layoutX="269.0" layoutY="323.0" mnemonicParsing="false" onAction="#onClick" text="Atzera" />
-      <Text layoutX="245.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="171.0" />
+      <Text fx:id="txt_izenburua" layoutX="245.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="171.0" />
       <Text fx:id="txt_argitaletxea" layoutX="245.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="171.0" />
-      <Text fx:id="txt_orriKop" layoutX="245.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="178.7294921875" />
+      <Text fx:id="txt_orriKop" layoutX="241.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="178.7294921875" />
    </children>
 </AnchorPane>
